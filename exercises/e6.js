@@ -15,19 +15,11 @@
  */
 
 export const handlePromise = () => {
-<<<<<<< HEAD
   return(
     Promise.reject('REJECTED!')
     .catch(err => console.log(err))
     .finally(() => console.log('This promise is finished!'))
   );
-=======
-  return (
-    Promise.reject('REJECTED!')
-      .catch(err => console.log(err))
-      .finally(()=> console.log('This promise is finished!'))
-  )
->>>>>>> refs/remotes/copy/main
 };
 
 // === TEST YOURSELF ===
