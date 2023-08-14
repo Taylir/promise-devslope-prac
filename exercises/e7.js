@@ -19,15 +19,15 @@
  *          }
  */
 
-export function parsePromised(jStr) {
-  return new Promise((res,rej) => {
+export function parsePromised(jsonStr) {
+  return new Promise((res, rej) => {
     try {
-      res(JSON.parse(jStr));
-    } catch (error) {
-      rej(error);
+      res(JSON.parse(jsonStr));
+    } catch (e) {
+      rej(e);
     }
-  })
-}
+  });
+};
 
 /**
  * @task
