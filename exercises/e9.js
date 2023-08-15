@@ -12,9 +12,9 @@
  */
 
 export function iterate(arg) {
-  // Your code goes here...
-  
-}
+  console.log(arg);
+  return arg + 1;
+};
 
 /**
  * @task
@@ -23,9 +23,8 @@ export function iterate(arg) {
  */
 
 export function alwaysThrows() {
-  // Your code goes here...
-
-}
+  throw Error("OH NOES")
+};
 
 /**
  * @task
@@ -36,10 +35,9 @@ export function alwaysThrows() {
  * The function must be exported
  */
 
-export function onReject() {
-  // Your code goes here...
-
-}
+export function onReject(strErr) {
+  return typeof strErr === 'object' ? console.log(strErr.message) : console.log(strErr);
+};
 
 /**
  * @task
@@ -63,7 +61,19 @@ export function onReject() {
  */
 
 // Your code goes here...
-export const promise;
+export const promise = Promise.resolve(iterate(1))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(alwaysThrows)
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .then(data => iterate(data))
+                                .catch(err => onReject(err));
+                                
 
 
 
