@@ -33,7 +33,7 @@ export const updateSumValue = () => {
   var sum = 2;
   sum + getPromise(120);
   sum += 8;
-  return sum
+  return sum;
 };
 
 // === TEST YOURSELF ===
