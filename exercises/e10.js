@@ -24,7 +24,7 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
 
 /**
  * @task
@@ -41,7 +41,9 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
-
+  export const handlePromise2 = arr => {
+    return Promise.any(arr).then(value => value);
+  }
 /**
  * @task
  * * Create the handlePromise3 function that follows:
@@ -57,7 +59,10 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
-
+export const handlePromise3 = (arr) => {
+  return Promise.allSettled(arr).then(values => 
+    values.map(value => value))
+}
 /**
  * @task
  * Update the filter method callback to filter out any promise that will be settled before promise4
@@ -66,7 +71,11 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  * The value of newPromiseArr MUST have more than one promise in the array!
  */
 
-export const newPromiseArr = promiseArr.filter(/* <Your code goes here>*/);
+export const newPromiseArr = promiseArr.filter(res => res.then(data => {
+  if (data == 'RESOLVED AGAIN') {
+    return data
+  }
+}).catch(err => err));
 
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {
