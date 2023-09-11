@@ -9,7 +9,7 @@
  */
 
 export const attachTitle = (arg) => {
-  return `DR. ${arg}`; 
+  return `DR. ${arg}`;
 };
 
 /**
@@ -21,12 +21,10 @@ export const attachTitle = (arg) => {
  */
 
 export const getPromise = () => {
-  return( 
-    Promise.resolve('MANHATTAN')
-      .then(res => {
-        attachTitle(res);
-        console.log(attachTitle(res));
-      }));
+  return Promise.resolve("MANHATTAN").then((res) => {
+    attachTitle(res);
+    console.log(attachTitle(res));
+  });
 };
 
 // === TEST YOURSELF ===

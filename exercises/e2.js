@@ -16,7 +16,9 @@
  */
 
 export const getPromise = (bool) => {
-  return new Promise((res, rej) => bool ? res(`The PROMISE was RESOLVED`) : rej(`The PROMISE was REJECTED`))
+  return new Promise((res, rej) =>
+    bool ? res(`The PROMISE was RESOLVED`) : rej(`The PROMISE was REJECTED`)
+  );
 };
 
 /**
@@ -28,7 +30,11 @@ export const getPromise = (bool) => {
  * The handlePromise() function must be exported
  */
 
-export const handlePromise = (promise) => promise.then((data => data), (_ => "Uh Oh"));
+export const handlePromise = (promise) =>
+  promise.then(
+    (data) => data,
+    () => "Uh Oh"
+  );
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"

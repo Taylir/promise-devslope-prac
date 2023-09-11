@@ -3,10 +3,9 @@
  * Please, make sure to read the "09 An-important-rule.md" file in exercises-info folder
  */
 
-
 /**
  * @task
- * Create a function `iterate` that prints the first function argument 
+ * Create a function `iterate` that prints the first function argument
  * (an integer) to it and then returns that argument + 1
  * The function must be exported
  */
@@ -14,7 +13,7 @@
 export function iterate(arg) {
   console.log(arg);
   return arg + 1;
-};
+}
 
 /**
  * @task
@@ -23,12 +22,12 @@ export function iterate(arg) {
  */
 
 export function alwaysThrows() {
-  throw Error("OH NOES")
-};
+  throw Error("OH NOES");
+}
 
 /**
  * @task
- * Create a function `onReject` that 
+ * Create a function `onReject` that
  * * Takes an argument that can be either error object or a string value
  * * Logs the error object message property value in the console if the argument is an object
  * * Logs the argument value in the console in any other case
@@ -36,8 +35,8 @@ export function alwaysThrows() {
  */
 
 export function onReject(strErr) {
-  return typeof strErr === 'object' ? console.log(strErr.message) : console.log(strErr);
-};
+  return strErr.message ? console.log(strErr.message) : console.log(strErr);
+}
 
 /**
  * @task
@@ -62,21 +61,17 @@ export function onReject(strErr) {
 
 // Your code goes here...
 export const promise = Promise.resolve(iterate(1))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(alwaysThrows)
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .then(data => iterate(data))
-                                .catch(err => onReject(err));
-                                
-
-
-
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrows)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .catch(onReject);
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"
 // If the test has all tests passed, switch to the next exercise file

@@ -27,7 +27,7 @@ export function parsePromised(jsonStr) {
       rej(e);
     }
   });
-};
+}
 
 /**
  * @task
@@ -53,10 +53,9 @@ export function onReject(err) {
  */
 
 export const handlePromise = (promise) => {
-  return (
-    promise
-      .then(data => data)
-      .catch(err => err.message ? onReject(err) : err))
+  return promise
+    .then((data) => data)
+    .catch((err) => (err.message ? onReject(err) : err));
 };
 
 // === TEST YOURSELF ===

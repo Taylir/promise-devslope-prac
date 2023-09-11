@@ -15,8 +15,8 @@
  * Example: export const getPromise(num) => return <Your code of promise>
  */
 export const getPromise = (num) => {
-  return num % 1 === 0 ? new Promise(res => res(num)) : 0;
-}; 
+  return num % 1 === 0 ? new Promise((res) => res(num)) : 0;
+};
 
 /**
  * @task
@@ -31,7 +31,7 @@ export const getPromise = (num) => {
  */
 export const updateSumValue = () => {
   var sum = 2;
-  sum + getPromise(120);
+  getPromise(120).then((value) => (sum += value));
   sum += 8;
   return sum;
 };

@@ -16,17 +16,16 @@
 
 // Your code goes here
 
-export const getPromise = new Promise((res, rej) => {
+export const getPromise = new Promise((res) => {
   setTimeout(() => {
-    res('The PROMISE was RESOLVED');
+    res("The PROMISE was RESOLVED");
   }, 1000);
 });
 
-getPromise
-  .then(data => {
-    console.log(data);
-    return data;
-  });
+getPromise.then((data) => {
+  console.log(data);
+  return data;
+});
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-1"
